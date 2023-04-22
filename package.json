@@ -1,15 +1,15 @@
 {
   "name": "websocket-nodejs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple nodejs websocket server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Denis Zagvozdin",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "ws": "^8.13.0"
   }
 }

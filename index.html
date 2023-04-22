@@ -7,7 +7,7 @@
 <body>
 
 <script>
-    const myWs = new WebSocket('ws://127.0.0.1:9000');
+    const myWs = new WebSocket('ws://' + location.host);
     // обработчик проинформирует в консоль когда соединение установится
     myWs.onopen = function () {
         console.log('подключился');

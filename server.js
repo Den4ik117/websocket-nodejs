@@ -1,11 +1,25 @@
+const http = require('http');
+const express = require('express');
 const WebSocket = require('ws');
+const path = require("path");
 
-const wsServer = new WebSocket.WebSocketServer({
-    host: '127.0.0.1',
-    port: 9000
+const app = express();
+
+app.get('/', (req, res) => {
+    // res.
+    // return 'test';
+    res.sendFile(path.join(__dirname, '/index.html'));
 });
 
-wsServer.on('connection', onConnect);
+const server = http.createServer(app);
+
+const webSocketServer = new WebSocket.WebSocketServer({
+    // host: '127.0.0.1',
+    // port: 9000,
+    server: server
+});
+
+webSocketServer.on('connection', onConnect);
 
 function onConnect(wsClient) {
     console.log('Новый пользователь');
@@ -38,4 +52,6 @@ function onConnect(wsClient) {
     });
 }
 
-console.log('Сервер запущен на 127.0.0.1:9000');
+server.listen(8001, /*'127.0.0.1',*/ function () {
+    console.log('Server started on 127.0.0.1:8001');
+});
